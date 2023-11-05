@@ -50,7 +50,13 @@ def predict():
     # Make a prediction using the loaded model
     prediction = model.predict([[feature1, feature2, feature3, feature4, feature5, feature6, feature7]])
 
-    return f'The given payment : {prediction[0]}'
+    return prediction[0]
+
+
+@app.route('/')
+def display_prediction():
+    prediction_result = predict()
+    return render_template('display.html', prediction=prediction_result)
 
 
 if __name__ == "__main__":
