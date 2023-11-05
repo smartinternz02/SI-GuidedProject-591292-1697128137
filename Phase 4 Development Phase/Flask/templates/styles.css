@@ -1,0 +1,17 @@
+/* Select all text on the page and make it larger */
+body, button {
+    font-size: 28px;
+}
+
+/* Center-align headings and paragraphs */
+h1, h2, p, button {
+    text-align: left;
+}
+/* styles.css */
+body {
+    background-image: url(''); /* Replace 'your-image.jpg' with the path to your background image */
+    background-size: cover; /* Scale the image to cover the entire background */
+    background-repeat: no-repeat; /* Prevent the image from repeating */
+    background-attachment: fixed; /* Keep the background image fixed */
+}
+
