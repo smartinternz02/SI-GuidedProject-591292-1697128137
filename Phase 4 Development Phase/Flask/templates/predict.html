@@ -1,6 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <style>
+        form {
+            border: 5px solid #333;
+            padding: 20px;
+            width: 300px; /* Set the desired width for the form */
+            margin: 1 auto; /* Center the form horizontally */
+        }
+
+        label {
+            display: block; /* Display labels as block elements to stack them vertically */
+        }
+
+        input, textarea {
+            width: 100%; /* Make input fields and text areas fill the available width */
+            box-sizing: border-box; /* Include padding and border in the element's total width */
+            margin-bottom: 10px; /* Add some spacing between form elements */
+        }
+
+        input {
+            width: 200px; /* Set the desired width for all input elements */
+        }
+
+        body {
+                background-color: #e3e3e3;
+<!--            background-image: url('bg.png'); /* Set the path to your background image */-->
+<!--            background-size: cover; /* Scale the image to cover the entire background */-->
+<!--            background-repeat: no-repeat; /* Prevent the image from repeating */-->
+        }
+    </style>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="styles.css">
@@ -9,11 +39,10 @@
 </head>
 <body>
 <a href="home.html"><button>Home</button></a>
-<h1>Online Payment Fraud Detection</h1>
-<p>You can fill out the forms here:</p>
+<h2>Online Payment Fraud Detection</h2>
 
 <form id="form_pred" method="post" action="submit.html">
-    <label for="step">Step : </label><input type="number" id="step" name="step" required>
+    <label for="step">Step : </label><input type="number" id="step" name="step" min="1" required>
     <br>
     <br>
     <label for="type">Type : </label><select id="type">
@@ -25,22 +54,23 @@
     </select>
     <br>
     <br>
-    <label for="amount" >Amount : </label><input type="number" id="amount" name="amount" required>
+    <label for="amount" >Amount : </label><input type="number" id="amount" name="amount" min="0" required>
     <br>
     <br>
-    <label for="oldbalanceOrg">Old Balance of Sender : </label><input type="number" id="oldbalanceOrg" name="oldbalanceOrg" required>
+    <label for="oldbalanceOrg">Old Balance of Sender : </label><input type="number" id="oldbalanceOrg" name="oldbalanceOrg" min="0" required>
     <br>
     <br>
-    <label for="newbalanceOrg">New Balance of Sender : </label><input type="number" id="newbalanceOrg" name="newbalanceOrg" required>
+    <label for="newbalanceOrg">New Balance of Sender : </label><input type="number" id="newbalanceOrg" name="newbalanceOrg" min="0" required>
     <br>
     <br>
-    <label for="oldbalanceDest">Old Balance of Receiver : </label><input type="number" id="oldbalanceDest" name="oldbalanceDest" required>
+    <label for="oldbalanceDest">Old Balance of Receiver : </label><input type="number" id="oldbalanceDest" name="oldbalanceDest" min="0" required>
     <br>
     <br>
-    <label for="newbalanceDest" >New Balance of Receiver : </label><input type="number" id="newbalanceDest" name="newbalanceDest" required>
+    <label for="newbalanceDest" >New Balance of Receiver : </label><input type="number" id="newbalanceDest" name="newbalanceDest" min="0" required>
     <br>
     <br>
     <input type="submit" value="Submit" onclick="predict()">
+
 </form>
 </body>
 </html>
