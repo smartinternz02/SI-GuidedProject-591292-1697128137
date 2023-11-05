@@ -2,9 +2,44 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forms Page</title>
 </head>
 <body>
+<h1>Forms Page</h1>
+<p>You can fill out the forms here:</p>
 
+<form id="form_pred" method="post">
+    <label for="step">Step:</label><input type="number" id="step" name="step" required>
+
+    <br>
+    <label for="type">Type</label><select id="type">
+        <option value="0">Cash In</option>
+        <option value="1">Cash Out</option>
+        <option value="2">Debit</option>
+        <option value="3">Payment</option>
+        <option value="4">Transfer</option>
+    </select>
+
+    <br>
+    <label for="amount">Amount:</label><input type="number" id="amount" name="amount" required>
+
+    <br>
+    <label for="oldbalanceOrg">Old Balance of Sender:</label><input type="number" id="oldbalanceOrg" name="oldbalanceOrg" required>
+
+    <br>
+    <label for="newbalanceOrg">New Balance of Sender:</label><input type="number" id="newbalanceOrg" name="newbalanceOrg" required>
+
+    <br>
+    <label for="oldbalanceDest">Old Balance of Receiver:</label><input type="number" id="oldbalanceDest" name="oldbalanceDest" required>
+
+    <br>
+    <label for="newbalanceDest">New Balance of Receiver:</label><input type="number" id="newbalanceDest" name="newbalanceDest" required>
+
+    <br>
+    <input type="submit" value="Submit" onclick="predict()">
+</form>
+
+<a href="home.html">Home</a>
 </body>
 </html>
