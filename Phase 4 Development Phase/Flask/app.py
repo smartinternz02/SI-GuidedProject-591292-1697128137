@@ -6,37 +6,23 @@ model = pkl.load(open("model.pkl", 'rb'))
 app = Flask(__name__)
 
 
+@app.route("/home.html")
+def home1():
+    return render_template("home.html")
+
+
 @app.route("/")
-def about():
+def home():
     return render_template("home.html")
 
 
-@app.route("/home")
-def about1():
-    return render_template("home.html")
+@app.route('/predict.html')
+def predict_page():
+    return render_template('predict.html')
 
 
-# @app.route("/")
-# def home1():
-#     return render_template("predict.html")
-
-
-# def predict():
-#     x = [[x for x in request.form.values()]]
-#     print(x)
-#
-#     x = np.array(x)
-#     print(x.shape)
-#     print(x)
-#
-#     pred = model.predict(x)
-#     print(pred[0])
-#
-#     return render_template("submit.html", prediction_text=str(pred))
-
-@app.route('/', methods=['POST'])
+@app.route('/submit.html', methods=['POST'])
 def predict():
-
     # Get user input from the form
     feature1 = float(request.form['step'])
     feature2 = float(request.form['type'])
@@ -49,13 +35,14 @@ def predict():
     # Make a prediction using the loaded model
     prediction = model.predict([[feature1, feature2, feature3, feature4, feature5, feature6, feature7]])
 
-    return prediction[0]
+    output = None
+    if prediction[0] == 1:
+        output = "is not a fraud transaction !!! "
+    else:
+        output = "is a fraud transaction !!! "
 
-
-@app.route('/')
-def display_prediction():
-    prediction_result = predict()
-    return render_template('submit.html', prediction=prediction_result)
+    # return str(prediction[0])  # Convert the prediction to a string
+    return render_template('submit.html', prediction=output)
 
 
 if __name__ == "__main__":

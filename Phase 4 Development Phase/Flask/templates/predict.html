@@ -6,15 +6,15 @@
             border: 5px solid #333;
             padding: 20px;
             width: 300px; /* Set the desired width for the form */
-            margin: 1 auto; /* Center the form horizontally */
+            margin: 0 auto; /* Center the form horizontally */
         }
 
         label {
             display: block; /* Display labels as block elements to stack them vertically */
         }
 
-        input, textarea {
-            width: 100%; /* Make input fields and text areas fill the available width */
+        input, select {
+            width: 100%; /* Make input fields and select fill the available width */
             box-sizing: border-box; /* Include padding and border in the element's total width */
             margin-bottom: 10px; /* Add some spacing between form elements */
         }
@@ -24,10 +24,7 @@
         }
 
         body {
-                background-color: #e3e3e3;
-<!--            background-image: url('bg.png'); /* Set the path to your background image */-->
-<!--            background-size: cover; /* Scale the image to cover the entire background */-->
-<!--            background-repeat: no-repeat; /* Prevent the image from repeating */-->
+            background-color: #e3e3e3;
         }
     </style>
 
@@ -36,6 +33,12 @@
     <link rel="stylesheet" type="text/css" href="styles.css">
     <title>Forms Page</title>
 
+    <script>
+        function predict() {
+            // JavaScript code for prediction can be added here
+            // This function is called when the form is submitted
+        }
+    </script>
 </head>
 <body>
 <a href="home.html"><button>Home</button></a>
@@ -43,34 +46,27 @@
 
 <form id="form_pred" method="post" action="submit.html">
     <label for="step">Step : </label><input type="number" id="step" name="step" min="1" required>
-    <br>
-    <br>
-    <label for="type">Type : </label><select id="type">
+    <br><br>
+    <label for="type">Type : </label>
+    <select id="type" name="type">
         <option value="0">Cash In</option>
         <option value="1">Cash Out</option>
         <option value="2">Debit</option>
         <option value="3">Payment</option>
         <option value="4">Transfer</option>
     </select>
-    <br>
-    <br>
-    <label for="amount" >Amount : </label><input type="number" id="amount" name="amount" min="0" required>
-    <br>
-    <br>
+    <br><br>
+    <label for="amount">Amount : </label><input type="number" id="amount" name="amount" min="0" required>
+    <br><br>
     <label for="oldbalanceOrg">Old Balance of Sender : </label><input type="number" id="oldbalanceOrg" name="oldbalanceOrg" min="0" required>
-    <br>
-    <br>
+    <br><br>
     <label for="newbalanceOrg">New Balance of Sender : </label><input type="number" id="newbalanceOrg" name="newbalanceOrg" min="0" required>
-    <br>
-    <br>
+    <br><br>
     <label for="oldbalanceDest">Old Balance of Receiver : </label><input type="number" id="oldbalanceDest" name="oldbalanceDest" min="0" required>
-    <br>
-    <br>
-    <label for="newbalanceDest" >New Balance of Receiver : </label><input type="number" id="newbalanceDest" name="newbalanceDest" min="0" required>
-    <br>
-    <br>
+    <br><br>
+    <label for="newbalanceDest">New Balance of Receiver : </label><input type="number" id="newbalanceDest" name="newbalanceDest" min="0" required>
+    <br><br>
     <input type="submit" value="Submit" onclick="predict()">
-
 </form>
 </body>
 </html>
