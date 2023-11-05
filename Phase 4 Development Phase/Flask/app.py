@@ -16,9 +16,9 @@ def about1():
     return render_template("home.html")
 
 
-@app.route("/predict")
-def home1():
-    return render_template("predict.html")
+# @app.route("/")
+# def home1():
+#     return render_template("predict.html")
 
 
 # def predict():
@@ -34,7 +34,7 @@ def home1():
 #
 #     return render_template("submit.html", prediction_text=str(pred))
 
-@app.route('/predict', methods=['POST'])
+@app.route('/', methods=['POST'])
 def predict():
 
     # Get user input from the form
@@ -55,7 +55,7 @@ def predict():
 @app.route('/')
 def display_prediction():
     prediction_result = predict()
-    return render_template('templates/submit.html', prediction=prediction_result)
+    return render_template('submit.html', prediction=prediction_result)
 
 
 if __name__ == "__main__":
