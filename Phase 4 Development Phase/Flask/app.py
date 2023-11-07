@@ -36,7 +36,7 @@ def predict():
     prediction = model.predict([[feature1, feature2, feature3, feature4, feature5, feature6, feature7]])
 
     output = None
-    if prediction[0] == 1:
+    if prediction[0] == 0:
         output = "is not a fraud transaction !!! "
     else:
         output = "is a fraud transaction !!! "
